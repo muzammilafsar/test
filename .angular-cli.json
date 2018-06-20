@@ -19,9 +19,21 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../src/ui/css/bootstrap.css",
+        "../src/ui/css/skdslider.css",
+        "../src/ui/css/font-awesome.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../src/ui/js/jquery-1.11.1.min.js",
+        "../src/ui/js/minicart.min.js",
+        "../src/ui/js/move-top.js",
+        "../src/ui/js/responsiveslides.min.js",
+        "../src/ui/js/skdslider.min.js",
+        "../src/ui/js/easing.js",
+        "../src/ui/js/bootstrap.min.js"           
+        
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
