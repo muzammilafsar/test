@@ -12,8 +12,11 @@ import { TopBrandsComponent } from './top-brands/top-brands.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdSliderComponent } from './ad-slider/ad-slider.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { homedir } from 'os';
 import { ProductListingComponent } from './product-listing/product-listing.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ApiService } from './api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CartService } from './cart.service';
 
 const AppRoutes: Routes = [
   {
@@ -21,6 +24,7 @@ const AppRoutes: Routes = [
     children: [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomepageComponent},
+      {path: 'cart', component: ShoppingCartComponent},
       {path: 'category', component: ProductListingComponent }
     ]
   }
@@ -35,13 +39,16 @@ const AppRoutes: Routes = [
     FooterComponent,
     AdSliderComponent,
     HomepageComponent,
-    ProductListingComponent
+    ProductListingComponent,
+    ShoppingCartComponent,
+    
   ],
   imports: [
     BrowserModule, UiModule,
     RouterModule.forRoot(AppRoutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
