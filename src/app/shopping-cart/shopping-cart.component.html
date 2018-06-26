@@ -1,7 +1,7 @@
 <!-- checkout -->
 <div class="checkout">
   <div class="container">
-    <h2>Your shopping cart contains: <span>3 Products</span></h2>
+    <h2>Your shopping cart contains: <span>{{shoppingCart.length}} Products</span></h2>
     <div class="checkout-right">
       <table class="timetable_sub">
         <thead>
@@ -15,24 +15,24 @@
             <th>Remove</th>
           </tr>
         </thead>
-        <tr class="rem1">
-          <td class="invert">1</td>
+        <tr class="rem1" *ngFor="let item of shoppingCart; let i = index">
+          <td class="invert">{{i+1}}</td>
           <td class="invert-image"><a href="single.html"><img src="images/1.png" alt=" " class="img-responsive" /></a></td>
           <td class="invert">
              <div class="quantity"> 
               <div class="quantity-select">                           
-                <div class="entry value-minus">&nbsp;</div>
-                <div class="entry value"><span>1</span></div>
-                <div class="entry value-plus active">&nbsp;</div>
+                <div (click)="cart.decrement(item)" class="entry value-minus">&nbsp;</div>
+                <div class="entry value"><span>{{item.quantity}}</span></div>
+                <div (click)="cart.increment(item)"  class="entry value-plus active">&nbsp;</div>
               </div>
             </div>
           </td>
-          <td class="invert">Tata Salt</td>
+          <td class="invert">{{item.name}}</td>
           
-          <td class="invert">$290.00</td>
+          <td class="invert">{{item.selling_price}}</td>
           <td class="invert">
             <div class="rem">
-              <div class="close1"> </div>
+              <div> <i class="fa fa-times fa-2" style="font-size: 2em" aria-hidden="true"></i></div>
             </div>
             <script>$(document).ready(function(c) {
               $('.close1').on('click', function(c){
@@ -50,13 +50,11 @@
     </div>
     <div class="checkout-left">	
       <div class="checkout-left-basket">
-        <h4>Continue to basket</h4>
+        <h4 routerLink="/checkout">CHECKOUT</h4>
         <ul>
-          <li>Product1 <i>-</i> <span>$15.00 </span></li>
-          <li>Product2 <i>-</i> <span>$25.00 </span></li>
-          <li>Product3 <i>-</i> <span>$29.00 </span></li>
-          <li>Total Service Charges <i>-</i> <span>$15.00</span></li>
-          <li>Total <i>-</i> <span>$84.00</span></li>
+          <li *ngFor="let item of shoppingCart">{{item.name}} <i>x</i> {{item.quantity}}  <span>{{item.selling_price * item.quantity}}</span></li>
+          <li>Shipping Charges <i></i> <span>$15.00</span></li>
+          <li>Total <i>-</i> <span>{{totalAmount}}</span></li>
         </ul>
       </div>
       <div class="checkout-right-basket">

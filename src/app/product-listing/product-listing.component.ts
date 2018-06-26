@@ -15,13 +15,18 @@ export class ProductListingComponent implements OnInit {
   constructor( private route:  ActivatedRoute, private api: ApiService, private cartService: CartService) { }
 
   ngOnInit() {
-  
-  this.sub_category = (this.route.snapshot.queryParams['category']);
-  this.category = (this.route.snapshot.queryParams['sub_category']);
-  this.api.get(`/productsbysubcategory/${this.sub_category}`).subscribe(val => {
-    console.log(val);
-    this.productList = val['products'];
+  this.route.queryParamMap.subscribe(val=> {
+    console.log(val['params']);
+    this.category = (val['params']['category']);
+    this.sub_category = (val['params']['sub_category']);
+    this.api.post(`/productsbysubcategory`,{sub_category_name: this.sub_category}).subscribe(val => {
+      console.log(val);
+      this.productList = val['products'];
+    })
   })
+  // this.sub_category = (this.route.snapshot.queryParams['category']);
+  // this.category = (this.route.snapshot.queryParams['sub_category']);
+  
   }
   addToCart(obj) {
     console.log(obj);

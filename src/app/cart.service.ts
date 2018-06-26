@@ -38,8 +38,14 @@ export class CartService {
     }
     this.saveList();
   }
+  remove(product) {
+    let index = this.productList.findIndex(val => val._id === product._id);
+    this.productList.splice(index, 1);
+    this.saveList();
+  }
   saveList(){
     localStorage.setItem('cart', JSON.stringify(this.productList));
   }
+
 
 }

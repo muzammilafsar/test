@@ -17,6 +17,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './cart.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const AppRoutes: Routes = [
   {
@@ -25,7 +26,8 @@ const AppRoutes: Routes = [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomepageComponent},
       {path: 'cart', component: ShoppingCartComponent},
-      {path: 'category', component: ProductListingComponent }
+      {path: 'category', component: ProductListingComponent },
+      {path: 'checkout', component: CheckoutComponent }
     ]
   }
 ];
@@ -41,6 +43,7 @@ const AppRoutes: Routes = [
     HomepageComponent,
     ProductListingComponent,
     ShoppingCartComponent,
+    CheckoutComponent,
     
   ],
   imports: [
