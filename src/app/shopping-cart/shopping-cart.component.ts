@@ -17,12 +17,7 @@ export class ShoppingCartComponent implements OnInit {
     return this.cart.productList;
   }
   get totalAmount() {
-    let total = 0;
-    this.cart.productList.map(val => {
-
-      total = total + (val.selling_price * val.quantity);
-    });
-    return total;
+    return this.cart.CarttotalAmount();
   }
 
 }

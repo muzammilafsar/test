@@ -1,5 +1,5 @@
 
-.headline{text-align:center;margin:20px 0 75px}
+.headline{text-align:center;}
 .headline img{display:block;margin:0 auto 20px}
 
 .headline h1{display:inline-block;border-bottom:1px solid #d0d0d0;line-height:40px;font-weight:300;text-transform:uppercase;margin:0 -3px;padding:0 12px}
@@ -531,4 +531,16 @@ form.go-right input:focus + label, form.go-right textarea:focus + label {
   margin-right: 0;
   width: 40%;
   padding-top: 5px;
+}
+.tab_heading{
+	font-size: 23px;
+}
+.state{
+	margin-bottom: 0;
+}
+.country{
+	margin-bottom: 0;	
+}
+.checkout-left-basket{
+	width: 100%;
 }

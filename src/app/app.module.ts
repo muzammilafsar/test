@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { ProductCardComponent } from './ui/product-card/product-card.component';
@@ -18,6 +17,32 @@ import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './cart.service';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LoginSignupComponent } from './login-signup/login-signup.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angular5-social-login';
+
+
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("155492531554907")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider('771364566521-b6fmcgoitqs39hiiregqa8os5cblboat.apps.googleusercontent.com')
+        },
+      ]
+  );
+  return config;
+}
 
 const AppRoutes: Routes = [
   {
@@ -44,14 +69,22 @@ const AppRoutes: Routes = [
     ProductListingComponent,
     ShoppingCartComponent,
     CheckoutComponent,
+    LoginSignupComponent,
     
   ],
   imports: [
     BrowserModule, UiModule,
     RouterModule.forRoot(AppRoutes),
-    HttpClientModule
+    HttpClientModule, 
+    ReactiveFormsModule,
+    FormsModule,
+    SocialLoginModule
   ],
-  providers: [ApiService, CartService],
+  providers: [ApiService, CartService, 
+    {
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

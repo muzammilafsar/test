@@ -1,0 +1,157 @@
+<div id="myModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog modal-lg" *ngIf="login">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="border: none">
+        <button (click)="reset()" type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="login">
+          <div class="back">
+            <div class="row">
+              <h2 style="text-align:center" style="color: #fe9126;font-size: 34px;margin-bottom: 20px; text-align: center;margin-top: 0">LOGIN</h2>
+              <div class="vl">
+                <span class="vl-innertext">or</span>
+              </div>
+        
+              <div class="col">
+                <a href="#" class="fb btn">
+                  <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                 </a>
+                <a (click)="socialSignIn('facebook')" class="twitter btn">
+                  <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                </a>
+                <a (click)="socialSignIn('google')" class="google btn"><i class="fa fa-google fa-fw">
+                  </i> Login with Google+
+                </a>
+              </div>
+        
+              <div class="col">
+                <div class="hide-md-lg">
+                  <p>Or sign in manually:</p>
+                </div>
+                <form [formGroup]="loginForm">
+                  
+                  <input class="input_border" type="text" formControlName="email" name="email" placeholder="Email" required>
+                  <span class="help-block error" 
+                  *ngIf="!loginForm.get('email').valid 
+                  && loginForm.get('email').touched 
+                  && loginForm.get('email').value == ''">Email is required</span>
+                  <span class="help-block error" 
+                  *ngIf="!loginForm.get('email').valid 
+                  && loginForm.get('email').touched 
+                  && loginForm.get('email').value != ''">Email is invalid</span>
+                  <input class="input_border" type="password" formControlName="password" name="password" placeholder="Password" required>
+                  <span class="help-block error" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Password is required</span>
+                  
+                  <span class="help-block error">{{loginErrorMsg}}</span>
+                </form>
+                
+                <button (click)="loginUser()" style="background-color: #fe9126; color:white;" type="button" class="btn" value="Login">Login</button>
+
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="bottom-container">
+          <div class="row">
+            <div class="col" style="margin: 10px 0px 10px 0;" (click)="login=false;">
+              <a style="color:white;margin: 10px 0px 10px 0;
+              ">Sign up</a>
+            </div>
+            <div class="col" style="margin: 10px 0px 10px 0;">
+              <a  style="color:white">Forgot password?</a>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- <div id="signup">
+          <div class="back">
+            <div class="row">
+              <h2 style="text-align:center" style="font-size: 34px;margin-bottom: 20px; text-align: center;margin-top: 0">SIGNUP</h2>
+              
+        
+              <div class="col" style="    padding: 0px 0 0 18px;">
+                <input type="text" name="username" placeholder="Name" required>
+                <input type="password" name="password" placeholder="Email" required>
+                <input type="text" name="username" placeholder="Mobile" required>
+              </div>
+        
+              <div class="col" style="padding: 0px 18px 0 18px;">
+                
+        
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Confirm Password" required>
+                
+              </div>
+              
+            </div>
+          
+        </div>
+        
+        <div class="bottom-container">
+          <div class="row">
+            <div>
+              <a style="color:white" class="btn">Sign up</a>
+            </div>
+          </div>
+        </div>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-dialog" *ngIf="!login">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color: white">
+      <div class="modal-header" style="border: none">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="signup">
+          <div class="back">
+            <div class="row" style="background-color: white">
+              <h2 style="text-align:center" style="font-size: 34px;margin-bottom: 20px; text-align: center;margin-top: 0; color: #fe9126">SIGNUP</h2>
+              <p *ngIf="registeredsuccess" style="margin: 0 20px 10px;color: darkslateblue;">Register successfully. Please Verify your email.</p>
+              <p *ngIf="alreadyregistered" style="margin: 0 20px 10px;color: red;">Email Already Registered</p>            
+              <form [formGroup]="signupForm">
+              <div  style="padding: 0px 18px 0 18px;">
+                <input class="input_border" type="text" formControlName="name" name="name" placeholder="Name" required>
+                <span class="help-block error" *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched">Name is required</span>
+                <input class="input_border" type="text" formControlName="email" name="email" placeholder="Email" required>
+                <span class="help-block error"
+                *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched && signupForm.get('email').value != ''">Email is not valid</span> 
+                <span class="help-block error" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched && signupForm.get('email').value == ''">Email is required</span>                
+                               
+                <input class="input_border" type="text" formControlName="mobile" name="mobile" placeholder="Mobile" required>
+                <span class="help-block error" *ngIf="!signupForm.get('mobile').valid && signupForm.get('mobile').touched">Mobile is required</span>               
+                <input class="input_border" type="password" formControlName="password" name="password" placeholder="Password" required>
+                <span class="help-block error" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched && signupForm.get('password').value == ''">Password is required</span>   
+                <span class="help-block error" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched && signupForm.get('password').value != ''">Password should be of min 8 character and max 50 character </span>                                             
+                <input class="input_border" type="password" formControlName="password2" name="password" placeholder="Confirm Password" required>
+                <span class="help-block error" *ngIf="!signupForm.get('password2').valid && signupForm.get('password2').touched">Confirm your pasword</span>
+                <span class="help-block error" *ngIf="signupForm.get('password2').touched && signupForm.get('password2').value != signupForm.get('password').value">Password does not match</span>                
+                <a (click)="login=true" style="padding-top: 7px">Already Registered ? Login .</a>
+              </div>
+            </form>  
+            </div>
+          
+        </div>
+        
+        <div class="">
+          <div class="">
+            <div>
+              <button style="background-color: #fe9126;" (click)="signupUser()" class="btn btn-primary">Sign up</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

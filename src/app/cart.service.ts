@@ -47,5 +47,12 @@ export class CartService {
     localStorage.setItem('cart', JSON.stringify(this.productList));
   }
 
+  CarttotalAmount() {
+    let total = 0;
+    this.productList.map(val => {
 
+      total = total + (val.selling_price * val.quantity);
+    });
+    return total;
+  }
 }
