@@ -1,162 +1,82 @@
-
-<div class="headline">
-  <h2>CHECKOUT</h2>                        
-  </div>
-  <div class="row"><div class="col-md-1"></div> 
-  <div class=" col-md-6 checkout-right">
-    <table class="timetable_sub">
-      <thead>
-        <tr>
-          <th>SL No.</th>	
-          <th>Product</th>
-          <th>Quality</th>
-          <th>Product Name</th>
-        
-          <th>Price</th>
-          
-        </tr>
-      </thead>
-      <tr class="rem1" *ngFor="let item of shoppingCart; let i = index">
-        <td class="invert">{{i+1}}</td>
-        <td class="invert-image"><a href="single.html"><img src="images/1.png" alt=" " class="img-responsive" /></a></td>
-        <td class="invert">
-           <div class="quantity"> 
-            <div class="quantity-select">                           
-              <div (click)="cart.decrement(item)" class="entry value-minus">&nbsp;</div>
-              <div class="entry value"><span>{{item.quantity}}</span></div>
-              <div (click)="cart.increment(item)"  class="entry value-plus active">&nbsp;</div>
+<div class="row">
+  <div class="container">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">Delivery Address</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="usr">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="number" class="form-control" id="mobile">
+              </div>
             </div>
           </div>
-        </td>
-        <td class="invert">{{item.name}}</td>
-        
-        <td class="invert">{{item.selling_price}}</td>
-      
-      </tr>
-      
-
-
-    </table>
-  </div>
-  <div class="col-md-4">
-      <div class="checkout-left-basket">
-          <h4 routerLink="/checkout">ORDER DETAILS</h4>
-          <ul>
-            <li *ngFor="let item of shoppingCart">{{item.name}} <i>x</i> {{item.quantity}}  <span>{{item.selling_price * item.quantity}}</span></li>
-            <li>Shipping Charges <i></i> <span>$15.00</span></li>
-            <li>Total <i>-</i> <span>{{totalAmount}}</span></li>
-          </ul>
-        </div>
-  </div>
-  
-</div>
-
-  
-
-<div class="container" style="font-size: 9px;">
-  <div class="column column1">
-    <div class="step" id="step2">
-      <div class="number">
-        <span>1</span>
-      </div>
-      <div class="title">
-        <h1 class="tab_heading">Billing Information</h1>
-      </div>
-    </div>
-    <div class="content" id="address">
-      <form class="go-right">
-        <div>
-        <input type="name" name="first_name" value="" id="first_name" placeholder="First Name" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your First Name"/><label for="first_name">Name</label>
-                </div>
-        <div>
-        <input type="name" name="last_name" value="" id="last_name" placeholder="Last Name" data-trigger="change" data-validation-minlength="1" data-type="name" data-required="true" data-error-message="Enter Your Last Name"/><label for="last_name">Last Name</label>
-        <input type="phone" name="telephone" value="" id="telephone" placeholder="Phone Number (+91)" data-trigger="change" data-validation-minlength="1" data-type="number" data-required="true" data-error-message="Enter Your Telephone Number"/><label for="telephone">Telephone</label>
-        </div>
-        <div>
-        <input type="text" name="address" value="" id="address" placeholder="Complete Address" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Address"/><label for="Address">Address</label>
-        </div>
-        <div>
-        <div class="state_options">
-              <div class="select">
-                     <select id="state">
-                         <option value = "1">Aligarh</option>
-                         <option value = "2">Agra</option>
-      
-                     </select>
-                   </div>
-                  <label class="state" for="state">CITY</label>
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="number" class="form-control" id="pincode">
               </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <label for="locality">Locality:</label>
+                <input type="text" class="form-control" id="locality">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" rows="3" id="address"></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label for="sel1">Select City:</label>
+                <select class="form-control" id="sel1">
+                  <option>Aligarh</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                <label for="sel1">Select State:</label>
+                <select disabled class="form-control" id="sel1">
+                  <option>Uttar Pradesh</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div>
-        <input type="text" name="zip" value="" id="zip" placeholder="Zip Code" data-trigger="change" data-validation-minlength="1" data-type="text" data-required="true" data-error-message="Enter Your Billing Zip Code"/><label for="zip">Zip Code</label>
+
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">My TOKRI</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-5">
+              <img class="resposive" src="https://cdn.grofers.com/app/images/products/normal/pro_387197.jpg?ts=1529821033" alt="">
+            </div>
+            <div class="col-md-7">
+              <h4 style="margin-bottom: 0">Product 1</h4><br>
+              <p style="margin-top: -15px">Qty: 1</p>
+            </div>
+          </div>
         </div>
-        <div>
-        
-        </div>
-        <div>
-        <input type="checkbox"/>
-        <label class="same" for="same_as_shipping">Same As Shipping Address</label><span></span>
-        </div>
-      </form>
-      
+      </div>
     </div>
   </div>
-
-  <div class="column column2">
-    <div class="step" id="step3">
-      <div class="number">
-        <span>2</span>
-      </div>
-      <div class="title">
-        <h1 class="tab_heading">Shipping Time Slot</h1>
-      </div>
-      <div class="modify">
-      </div>
-    </div>
-    <div class="content" id="shipping">
-      <form action="" method="" >
-        
-          <input type="radio" id="shipping_1" value="1" name="slot"><label for="shipping_1"> 12-3 PM (TODAY) <span class="checkmark"></span></label> <br><br>
-        
-          
-          <input type="radio" id="shipping_2" value="2" name="slot"><label for="shipping_2"> 6-9 PM (TODAY)<span class="checkmark"></span></label><br><br>
-        
-          
-          <input type="radio" id="shipping_3" value="3" name="slot"><label for="shipping_3"> 12-3 PM (TOMMOROW)<span class="checkmark"></span></label><br><br>
-        
-          
-          <input type="radio" id="shipping_4" value="4" name="slot"><label for="shipping_4"> 6-9 PM (TOMMOROW)<span class="checkmark"></span></label><br><br>
-        
-      </form>
-      <!-- <a class="continue" href="#">Continue</a> -->
-    </div>
-    <div class="step" id="step4">
-      <div class="number">
-        <span>3</span>
-      </div>
-      <div class="title">
-        <h1 class="tab_heading">Payment Information</h1>
-      </div>
-      <div class="modify">
-      </div>
-    </div>
-    
-    <!----payments---->
-    
-  <div class="content" id="shipping">
-    <div class="left">
-         <form>
-            <input type="radio" id="mode1" value="1" name="slot"><label for="mode1"> Cash On Delivery <span class="checkmark"></span></label><br><br>
-        
-          
-        <input type="radio" id="mode2" value="2" name="slot"><label for="mode2"> Paytm On Doorstep <span class="checkmark"></span></label><br><br>
-        
-       </form>
-      </div>
-          <!-- <a class="continue" href="#">Continue</a> -->
-   </div>
-      
-   </div>
-
-  
 </div>
