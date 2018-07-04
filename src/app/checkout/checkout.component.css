@@ -4,3 +4,17 @@
 		img{
 			max-width: 100%;
 		}
+		
+
+.panel-heading{
+	background-color: #fe9126;
+	color: white;
+	font-size: 17px;
+}
+.checkoutproduct{
+	border-bottom: 1px solid transparent;
+	border-color: #ddd;
+}
+.timings{
+	padding: 3.5px 0px 3.5px 0px;
+}

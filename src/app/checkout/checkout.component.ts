@@ -13,7 +13,12 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
     this.addressForm = new FormGroup( {
-      'name' : new FormControl('',[Validators.required])
+      'name' : new FormControl('',[Validators.required]),
+      'mobile' : new FormControl('',[Validators.required]),
+      'pincode' : new FormControl('',[Validators.required]),
+      'locality' : new FormControl('',[Validators.required]),
+      'address' : new FormControl('',[Validators.required]),
+      'city' : new FormControl('aligarh',[Validators.required])
     })
   }
   get shoppingCart() {

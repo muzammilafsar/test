@@ -1,20 +1,21 @@
 <div class="row">
-  <div class="container">
+  <div class="container" style="padding-top: 15px ">
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-heading">Delivery Address</div>
         <div class="panel-body">
+          <form [formGroup]="addressForm">
           <div class="row">
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label for="usr">Name:</label>
-                <input type="text" class="form-control" id="usr">
+                <input formControlName="name" type="text" class="form-control" id="usr">
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label for="mobile">Mobile:</label>
-                <input type="number" class="form-control" id="mobile">
+                <input formControlName="mobile" type="number" class="form-control" id="mobile">
               </div>
             </div>
           </div>
@@ -22,28 +23,28 @@
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label for="pincode">Pincode:</label>
-                <input type="number" class="form-control" id="pincode">
+                <input formControlName="pincode" type="number" class="form-control" id="pincode">
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
                 <label for="locality">Locality:</label>
-                <input type="text" class="form-control" id="locality">
+                <input formControlName="locality" type="text" class="form-control" id="locality">
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <label for="address">Address:</label>
-            <textarea class="form-control" rows="3" id="address"></textarea>
+            <textarea  formControlName="address" class="form-control" rows="3" id="address"></textarea>
           </div>
 
           <div class="row">
             <div class="col-md-6 col-sm-6">
               <div class="form-group">
                 <label for="sel1">Select City:</label>
-                <select class="form-control" id="sel1">
-                  <option>Aligarh</option>
+                <select formControlName="city" class="form-control" id="sel1">
+                  <option selected value="aligarh">Aligarh</option>
                 </select>
               </div>
             </div>
@@ -56,25 +57,113 @@
               </div>
             </div>
           </div>
-
+        </form>
         </div>
 
       </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Delivery Date & Time</div>
+        <div class="panel-body">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Tues 03 July</a></li>
+            <li><a href="#">Web 04 July</a></li>
+          </ul>
 
+          <div class="timings">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input name="slot" type="radio" aria-label="...">
+                  </span>
+                  <span type="text" class="form-control" >10 AM - 1 PM</span>
+                </div><!-- /input-group -->
+              <!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="timings">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input name="slot" name="slot" type="radio" aria-label="...">
+                </span>
+                <span type="text" class="form-control" >4 PM - 7 PM</span>
+              </div><!-- /input-group -->
+            <!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+          <div class="timings">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <input name="slot" type="radio" aria-label="...">
+              </span>
+              <span type="text" class="form-control" >8 PM - 11 PM</span>
+            </div><!-- /input-group -->
+          <!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+        </div>
+
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Delivery Date & Time</div>
+        <div class="panel-body">
+
+          <div class="timings">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input name="paymode" type="radio" aria-label="...">
+                  </span>
+                  <span type="text" class="form-control" >Cash on Delivery</span>
+                </div><!-- /input-group -->
+              <!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="timings">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input name="paymode" type="radio" aria-label="...">
+                </span>
+                <span type="text" class="form-control" >Paytm on Delivery</span>
+              </div><!-- /input-group -->
+            <!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div>
+
+      </div>
+      <div><button class="btn btn-primary">Pay Now</button></div>
     </div>
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">My TOKRI</div>
         <div class="panel-body">
-          <div class="row">
+          <div class="row checkoutproduct">
             <div class="col-md-5">
               <img class="resposive" src="https://cdn.grofers.com/app/images/products/normal/pro_387197.jpg?ts=1529821033" alt="">
             </div>
             <div class="col-md-7">
               <h4 style="margin-bottom: 0">Product 1</h4><br>
-              <p style="margin-top: -15px">Qty: 1</p>
+              <p style="margin-top: -15px">Qty: 1</p><br>
+              <p style="margin-top: -15px;font-size: 19px">$24</p><br>
+
             </div>
           </div>
+          <div class="row checkoutproduct">
+            <div class="col-md-5">
+              <img class="resposive" src="https://cdn.grofers.com/app/images/products/normal/pro_387197.jpg?ts=1529821033" alt="">
+            </div>
+            <div class="col-md-7">
+              <h4 style="margin-bottom: 0">Product 1</h4><br>
+              <p style="margin-top: -15px">Qty: 1</p><br>
+              <p style="margin-top: -15px;font-size: 19px">$24</p><br>
+
+            </div>
+          </div>
+
+          <div class="row checkoutproduct" style="margin:10px 2px 2px 2px;padding-bottom: 4px;font-size: 15px;">
+            <div class="row"><div class="col-md-6">Total Amount</div>
+            <div class="col-md-6" style="text-align: right;">$500</div></div>
+            <div class="row"><div class="col-md-6" >Delivery Charges</div>
+            <div class="col-md-6" style="text-align: right;">$500</div></div>
+          </div>
+          <div class="row" style="margin: 2px;font-size: 17px;">
+            <div class="row"><div class="col-md-6">Amount Payable</div>
+            <div class="col-md-6" style="text-align: right;">$500</div></div>
+          </div>
+
         </div>
       </div>
     </div>
