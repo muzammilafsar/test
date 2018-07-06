@@ -27,13 +27,13 @@ import {
 } from 'angular5-social-login';
 
 
-// Configs 
+// Configs
 export function getAuthServiceConfigs() {
-  let config = new AuthServiceConfig(
+  const config = new AuthServiceConfig(
       [
         {
           id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider("155492531554907")
+          provider: new FacebookLoginProvider('155492531554907')
         },
         {
           id: GoogleLoginProvider.PROVIDER_ID,
@@ -47,14 +47,13 @@ export function getAuthServiceConfigs() {
 const AppRoutes: Routes = [
   {
     path: '' ,
+    component: HomepageComponent,
     children: [
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'home', component: HomepageComponent},
       {path: 'cart', component: ShoppingCartComponent},
       {path: 'category', component: ProductListingComponent },
-      {path: 'checkout', component: CheckoutComponent }
     ]
-  }
+  },
+  {path: 'checkout', component: CheckoutComponent }
 ];
 @NgModule({
   declarations: [
@@ -70,17 +69,16 @@ const AppRoutes: Routes = [
     ShoppingCartComponent,
     CheckoutComponent,
     LoginSignupComponent,
-    
   ],
   imports: [
     BrowserModule, UiModule,
     RouterModule.forRoot(AppRoutes),
-    HttpClientModule, 
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     SocialLoginModule
   ],
-  providers: [ApiService, CartService, 
+  providers: [ApiService, CartService,
     {
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
