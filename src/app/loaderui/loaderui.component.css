@@ -1,0 +1,25 @@
+.bar {
+    width: 100%;
+    height: 10px;
+    border: 1px solid #fe9126;
+    border-radius: 3px;
+    background-image: 
+      repeating-linear-gradient(
+        -45deg,
+        #fe9126,
+        #fe9126 11px,
+        white 10px,
+        white 20px /* determines size */
+      );
+    background-size: 28px 28px;
+    animation: move .5s linear infinite;
+  }
+  
+  @keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 28px 0;
+    }
+  }

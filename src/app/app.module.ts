@@ -25,6 +25,8 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angular5-social-login';
+import { RoutingHelpComponent } from './routing-help/routing-help.component';
+import { LoaderuiComponent } from './loaderui/loaderui.component';
 
 
 // Configs
@@ -47,10 +49,11 @@ export function getAuthServiceConfigs() {
 const AppRoutes: Routes = [
   {
     path: '' ,
-    component: HomepageComponent,
+    component: RoutingHelpComponent,
     children: [
-      {path: 'cart', component: ShoppingCartComponent},
-      {path: 'category', component: ProductListingComponent },
+      { path: '', component: HomepageComponent },
+      { path: 'cart', component: ShoppingCartComponent },
+      { path: 'category', component: ProductListingComponent },
     ]
   },
   {path: 'checkout', component: CheckoutComponent }
@@ -69,6 +72,8 @@ const AppRoutes: Routes = [
     ShoppingCartComponent,
     CheckoutComponent,
     LoginSignupComponent,
+    RoutingHelpComponent,
+    LoaderuiComponent,
   ],
   imports: [
     BrowserModule, UiModule,

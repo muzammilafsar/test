@@ -17,7 +17,7 @@
         </thead>
         <tr class="rem1" *ngFor="let item of shoppingCart; let i = index">
           <td class="invert">{{i+1}}</td>
-          <td class="invert-image"><a href="single.html"><img src="images/1.png" alt=" " class="img-responsive" /></a></td>
+          <td class="invert-image"><a href="single.html"><img src="https://cdn.grofers.com/app/images/products/normal/pro_387197.jpg?ts=1529821033" alt=" " class="img-responsive" /></a></td>
           <td class="invert">
              <div class="quantity"> 
               <div class="quantity-select">                           
@@ -34,10 +34,10 @@
             <div class="rem">
               <div> <i class="fa fa-times fa-2" style="font-size: 2em" aria-hidden="true"></i></div>
             </div>
-            <script>$(document).ready(function(c) {
-              $('.close1').on('click', function(c){
-                $('.rem1').fadeOut('slow', function(c){
-                  $('.rem1').remove();
+            <script>₹(document).ready(function(c) {
+              ₹('.close1').on('click', function(c){
+                ₹('.rem1').fadeOut('slow', function(c){
+                  ₹('.rem1').remove();
                 });
                 });	  
               });
@@ -53,12 +53,12 @@
         <h4 routerLink="/checkout">CHECKOUT</h4>
         <ul>
           <li *ngFor="let item of shoppingCart">{{item.name}} <i>x</i> {{item.quantity}}  <span>{{item.selling_price * item.quantity}}</span></li>
-          <li>Shipping Charges <i></i> <span>$15.00</span></li>
+          <li>Shipping Charges <i></i> <span>₹15.00</span></li>
           <li>Total <i>-</i> <span>{{totalAmount}}</span></li>
         </ul>
       </div>
       <div class="checkout-right-basket">
-        <a href="single.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
+        <a routerLink="" ><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
       </div>
       <div class="clearfix"> </div>
     </div>

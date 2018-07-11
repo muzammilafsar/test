@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-checkout',
@@ -9,7 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
   addressForm: FormGroup;
-  constructor(private cart: CartService) { }
+  slotForm: FormGroup;
+  payForm: FormGroup;
+  constructor(private cart: CartService, private api: ApiService) { }
 
   ngOnInit() {
     this.addressForm = new FormGroup( {
@@ -20,6 +23,12 @@ export class CheckoutComponent implements OnInit {
       'address' : new FormControl('',[Validators.required]),
       'city' : new FormControl('aligarh',[Validators.required])
     })
+    this.slotForm = new FormGroup({
+      'slot': new FormControl('slot1',[Validators.required])
+    });
+    this.payForm = new FormGroup({
+      'paymode': new FormControl('cash',[Validators.required])
+    });
   }
   get shoppingCart() {
     return this.cart.productList;
@@ -27,5 +36,19 @@ export class CheckoutComponent implements OnInit {
   get totalAmount() {
     return this.cart.CarttotalAmount();
   }
-
+  confirmOrder() {
+    if(this.addressForm.valid && this.payForm.valid && this.slotForm.valid) {
+      console.log('address valid');
+      this.api.post('/neworder',{user: '8802868625',delivery_address: this.addressForm.value,...this.slotForm.value,...this.payForm.value})
+      .subscribe(val => {
+        console.log(val);
+      })
+    } else {
+      console.log('error');
+      (<any>Object).values(this.addressForm.controls).forEach(control => {
+        control.markAsTouched();
+      });
+      document.getElementById('addressForm').scrollIntoView();
+    }
+  }
 }
