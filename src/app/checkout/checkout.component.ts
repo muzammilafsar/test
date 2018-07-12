@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +13,10 @@ export class CheckoutComponent implements OnInit {
   addressForm: FormGroup;
   slotForm: FormGroup;
   payForm: FormGroup;
-  constructor(private cart: CartService, private api: ApiService) { }
+  todayDate ;
+  TommorowDate;
+
+  constructor(private cart: CartService, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.addressForm = new FormGroup( {
@@ -41,6 +45,11 @@ export class CheckoutComponent implements OnInit {
       console.log('address valid');
       this.api.post('/neworder',{user: '8802868625',delivery_address: this.addressForm.value,...this.slotForm.value,...this.payForm.value})
       .subscribe(val => {
+        if(val['status'] === 200) {
+          this.api.confirmedOrder = val['order'];
+          this.router.navigate(['orderconfirmed']);
+          
+        }
         console.log(val);
       })
     } else {
