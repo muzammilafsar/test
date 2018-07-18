@@ -14,7 +14,9 @@
   "dependencies": {
     "@angular/animations": "^5.2.11",
     "@angular/cdk": "^6.3.2",
-    "@angular/common": "^5.2.0",
+    "@angular/common": "^5.2.0",    
+    "@angular/cli": "~1.7.4",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
@@ -28,7 +30,8 @@
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "typescript": "~2.5.3"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.4",
