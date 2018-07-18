@@ -1,7 +1,6 @@
-<div id="myModal" class="modal fade" role="dialog" >
+<!-- <div id="myModal" class="modal fade" role="dialog" >
   <div class="modal-dialog modal-lg" *ngIf="login">
 
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header" style="border: none">
         <button (click)="reset()" type="button" class="close" data-dismiss="modal">&times;</button>
@@ -68,45 +67,13 @@
           </div>
         </div>
         </div>
-        <!-- <div id="signup">
-          <div class="back">
-            <div class="row">
-              <h2 style="text-align:center" style="font-size: 34px;margin-bottom: 20px; text-align: center;margin-top: 0">SIGNUP</h2>
-              
-        
-              <div class="col" style="    padding: 0px 0 0 18px;">
-                <input type="text" name="username" placeholder="Name" required>
-                <input type="password" name="password" placeholder="Email" required>
-                <input type="text" name="username" placeholder="Mobile" required>
-              </div>
-        
-              <div class="col" style="padding: 0px 18px 0 18px;">
-                
-        
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="password" name="password" placeholder="Confirm Password" required>
-                
-              </div>
-              
-            </div>
-          
-        </div>
-        
-        <div class="bottom-container">
-          <div class="row">
-            <div>
-              <a style="color:white" class="btn">Sign up</a>
-            </div>
-          </div>
-        </div>
-        </div> -->
       </div>
     </div>
 
   </div>
   <div class="modal-dialog" *ngIf="!login">
 
-    <!-- Modal content-->
+
     <div class="modal-content" style="background-color: white">
       <div class="modal-header" style="border: none">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -154,4 +121,40 @@
     </div>
 
   </div>
-</div>
+</div> -->
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="text-align:center;">Login / Signup</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" style="margin: 2em 0 2em 0">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <h4 style="text-align:center;">Enter your mobile number.</h4>
+                </div>
+                <div class="row">
+                  <div class="input-group">
+                    <span class="input-group-addon">+91</span>
+                    <input id="msg" style="margin: 0px;" type="text" class="form-control" name="msg" maxlength="10">
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 1.5em;">
+                  <button type="button" class="btn" style="color: white; background-color: #fe9126;">Get OTP</button>
+                </div>
+                <div class="row" style="text-align: center; color: #bf360c; font-weight: bold; margin-top: 0.5em;"><span >Resend</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

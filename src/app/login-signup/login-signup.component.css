@@ -1,4 +1,18 @@
-
+.input-group-addon{
+  border: none;
+  color: white;
+  background-color: #fe9126;
+}
+.input-group{
+  border: 2px solid #fe9126;
+  border-radius: 6px;
+}
+input[type="number"]:focus, .uneditable-input:focus{
+  border: none;
+}
+.row{
+  margin: 0;
+}
 /* style the container */
 .back {
     position: relative;
@@ -47,16 +61,6 @@
     color: white;
   }
   
-  /* style the submit button */
-  input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
   
   /* Two-column layout */
   .col {
@@ -67,45 +71,8 @@
     margin-top: 6px;
   }
   
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
   
-  /* vertical line */
-  .vl {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    border: 2px solid #ffcc80;
-    height: 175px;
-  }
-  
-  /* text inside the vertical line */
-  .vl-innertext {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ffcc80;
-    border: 1px solid #ffcc80;
-    border-radius: 50%;
-    padding: 8px 12px;
-    color: white;
-  }
-  
-  /* hide some text on medium and large screens */
-  .hide-md-lg {
-    display: none;
-  }
-  
-  /* bottom container */
-  .bottom-container {
-    text-align: center;    
-    background-color: #fe9126;
-    border-radius: 10px;
-  }
+
   
   /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 650px) {
