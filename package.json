@@ -4,11 +4,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "node node_modules/@angular/cli/bin/ng serve",
+    "build": "node --max_old_space_size=3000 node_modules/@angular/cli/bin/ng build --aot",
+    "test": "node --max_old_space_size=3000 node_modules/@angular/cli/bin/ng test -cc -sr",
+    "lint": "node node_modules/@angular/cli/bin/ng lint --force --format=vso",
+    "e2e": "node node_modules/@angular/cli/bin/ng e2e"
   },
   "private": true,
   "dependencies": {
