@@ -173,7 +173,7 @@
                     </form>
                   </div>
                   <div class="row" style="margin-top: 1.5em;">
-                    <button type="button" [disabled]="!otpForm.valid || verifyOtpLoader" [style.background-color]="otpForm.valid? '#fe9126': '#bdbdbd'" class="btn" style="color: white;" (click)="verifyOtp()"><div class="lds-ellipsis" *ngIf="verifyOtpLoader"><div></div><div></div><div></div><div></div></div>  <span  *ngIf="verifyOtpLoader">Next</span> </button>
+                    <button type="button" [disabled]="!otpForm.valid || verifyOtpLoader" [style.background-color]="otpForm.valid? '#fe9126': '#bdbdbd'" class="btn" style="color: white;" (click)="verifyOtp()"><div class="lds-ellipsis" *ngIf="verifyOtpLoader"><div></div><div></div><div></div><div></div></div>  <span  *ngIf="!verifyOtpLoader">Next</span> </button>
                   </div>
                   <div class="row" style="text-align: center; color: #bdbdbd;margin-top: 0.5em;" *ngIf="resendTimeout > 0" ><span > Resend code in {{resendTimeout}} sec</span></div>
                   <div class="row" style="text-align: center; color: #bf360c; font-weight: bold; margin-top: 0.5em;" *ngIf="resendTimeout == 0" (click)="resendOtp()"><span >Resend</span></div>
