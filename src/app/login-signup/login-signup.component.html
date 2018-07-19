@@ -161,13 +161,14 @@
             <div class="col-md-8">
               <div class="row">
                 <div class="col-md-12">
+                  <div class="row" style=" color: #ef9a9a;text-align: center;" *ngIf="wrongOtp"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Verification Failed. Try Again</div>
                   <div class="row">
                     <h4 style="text-align:center;">Enter 4 digit code sent to your phone +91-{{mobileForm.get('mobile').value}}</h4>
                   </div>
                   <div class="row">
                     <form [formGroup]="otpForm">
                     <div class="input-group">
-                      <input id="otp" style="margin: 0px;font-size: 4em;height: auto;" type="number" class="form-control" name="otp" maxlength="4" formControlName="otp" >
+                      <input id="otp" style="margin: 0px;font-size: 4em;height: auto;" [style.border-color]=" wrongOtp? '#e57373' : '#fe9126'" type="number" class="form-control" name="otp" maxlength="4" formControlName="otp" >
                     </div>
                     </form>
                   </div>

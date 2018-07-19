@@ -14,7 +14,7 @@ export class LoginSignupComponent implements OnInit {
   mobileForm: FormGroup;
   otpForm: FormGroup;
   showOtpForm: Boolean = false;
-
+  wrongOtp: Boolean = false;
 
   registeredsuccess: Boolean = false;
   alreadyregistered: Boolean = false;
@@ -48,13 +48,15 @@ export class LoginSignupComponent implements OnInit {
     });
     this.showOtpForm = true;
     this.resendTimer();
+    this.wrongOtp = false;
   }
   verifyOtp() {
-    this.api.post('/sendotp', {mobile: this.mobileForm.value.mobile, otp: this.otpForm.value.otp}).subscribe(val => {
+    this.api.post('/verifyotp', {mobile: this.mobileForm.value.mobile, otp: this.otpForm.value.otp}).subscribe(val => {
       if (val['type'] === 'success' && val['auth']) {
         localStorage.setItem('auth', val['auth']);
         window.location.reload();
       } else {
+        this.wrongOtp = true;
       }
     });
   }
@@ -62,6 +64,7 @@ export class LoginSignupComponent implements OnInit {
     this.api.post('/resendotp', {mobile: this.mobileForm.value.mobile})
     .subscribe(val => {
       console.log(val);
+      this.wrongOtp = false;
     });
     this.resendTimer();
   }
