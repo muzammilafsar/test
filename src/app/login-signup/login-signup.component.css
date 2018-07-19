@@ -40,28 +40,7 @@ input[type="number"]:focus, .uneditable-input:focus{
     text-decoration: none; /* remove underline from anchors */
   }
   
-  input:hover,
-  .btn:hover {
-    opacity: 1;
-  }
-  
-  /* add appropriate colors to fb, twitter and google buttons */
-  .fb {
-    background-color: #3B5998;
-    color: white;
-  }
-  
-  .twitter {
-    background-color: #55ACEE;
-    color: white;
-  }
-  
-  .google {
-    background-color: #dd4b39;
-    color: white;
-  }
-  
-  
+
   /* Two-column layout */
   .col {
     float: left;
@@ -99,4 +78,7 @@ input[type="number"]:focus, .uneditable-input:focus{
   .error{
     color: red;
     font-size: 12px;
+  }
+  .disabled{
+    background-color: #bdbdbd;
   }
