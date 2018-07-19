@@ -5,8 +5,16 @@
     </div>
     <div class="agile-login">
       <ul>
-        <li><a href="registered.html"> Create Account </a></li>
-        <li><a data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false" >Login</a></li>
+        
+        <li><a data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false" *ngIf="!(loginStatus)" >Login/Signup</a></li>
+        <li *ngIf="(loginStatus)"><div class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">My Account
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" style="min-width: 1em;" >
+            <li style="padding: 0;"><a routerLink="/myorders" style="color: black !important;">My Orders</a></li>
+            <li style="padding: 0;"><a style="color: black !important;" (click)="logout()">Logout</a></li>
+          </ul>
+        </div></li>
         <li><a href="contact.html">Help</a></li>
         
       </ul>

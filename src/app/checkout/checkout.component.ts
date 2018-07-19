@@ -43,11 +43,11 @@ export class CheckoutComponent implements OnInit {
   confirmOrder() {
     if(this.addressForm.valid && this.payForm.valid && this.slotForm.valid) {
       console.log('address valid');
-      this.api.post('/neworder',{user: '8802868625',delivery_address: this.addressForm.value,...this.slotForm.value,...this.payForm.value})
+      this.api.post('/neworder',{user:'asdad',mobile: '8802868625',items: this.cart.productList,delivery_address: this.addressForm.value,...this.slotForm.value,...this.payForm.value})
       .subscribe(val => {
         if(val['status'] === 200) {
           this.api.confirmedOrder = val['order'];
-          this.router.navigate(['orderconfirmed']);
+          // this.router.navigate(['orderconfirmed']);
           
         }
         console.log(val);

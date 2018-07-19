@@ -28,6 +28,8 @@ import {
 import { RoutingHelpComponent } from './routing-help/routing-help.component';
 import { LoaderuiComponent } from './loaderui/loaderui.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { LoginService } from './login.service';
+import { MyorderComponent } from './myorder/myorder.component';
 
 
 // Configs
@@ -55,7 +57,8 @@ const AppRoutes: Routes = [
       { path: '', component: HomepageComponent },
       { path: 'cart', component: ShoppingCartComponent },
       { path: 'category', component: ProductListingComponent },
-      { path: 'orderconfirmed', component: OrderConfirmationComponent}
+      { path: 'orderconfirmed', component: OrderConfirmationComponent},
+      { path: 'myorders', component: MyorderComponent}
     ]
   },
   {path: 'checkout', component: CheckoutComponent }
@@ -77,6 +80,7 @@ const AppRoutes: Routes = [
     RoutingHelpComponent,
     LoaderuiComponent,
     OrderConfirmationComponent,
+    MyorderComponent,
   ],
   imports: [
     BrowserModule, UiModule,
@@ -86,7 +90,7 @@ const AppRoutes: Routes = [
     FormsModule,
     SocialLoginModule
   ],
-  providers: [ApiService, CartService,
+  providers: [ApiService, CartService, LoginService,
     {
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
