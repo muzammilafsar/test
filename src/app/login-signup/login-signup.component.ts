@@ -39,24 +39,24 @@ export class LoginSignupComponent implements OnInit {
       'mobile': new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(10)])
     });
     this.otpForm = new FormGroup({
-      'otp': new FormControl('', [Validators.required, Validators.maxLength(4), Validators.minLength(4)])
+      'otp': new FormControl('', [Validators.required, Validators.minLength(4)])
     });
   }
   sendOtp() {
-    // this.api.post('/sendotp', {mobile: this.mobileForm.value.mobile}).subscribe(val => {
-    //   console.log(val);
-    // });
+    this.api.post('/sendotp', {mobile: this.mobileForm.value.mobile}).subscribe(val => {
+      console.log(val);
+    });
     this.showOtpForm = true;
     this.resendTimer();
   }
   verifyOtp() {
-    // this.api.post('/sendotp', {mobile: this.mobileForm.value.mobile, otp: this.otpForm.value.otp}).subscribe(val => {
-    //   if (val['type'] === 'success' && val['auth']) {
-    //     localStorage.setItem('auth', val['auth']);
-    //     window.location.reload();
-    //   } else {
-    //   }
-    // });
+    this.api.post('/sendotp', {mobile: this.mobileForm.value.mobile, otp: this.otpForm.value.otp}).subscribe(val => {
+      if (val['type'] === 'success' && val['auth']) {
+        localStorage.setItem('auth', val['auth']);
+        window.location.reload();
+      } else {
+      }
+    });
   }
   resendOtp() {
     this.api.post('/resendotp', {mobile: this.mobileForm.value.mobile})
@@ -66,6 +66,7 @@ export class LoginSignupComponent implements OnInit {
     this.resendTimer();
   }
   resendTimer() {
+    this.resendTimeout = 30;
     let iv = setInterval(() => {
       if (this.resendTimeout > 0 ) {
         this.resendTimeout = this.resendTimeout - 1;
