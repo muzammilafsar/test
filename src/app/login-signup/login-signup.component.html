@@ -145,7 +145,7 @@
                   <form [formGroup]="mobileForm">
                   <div class="input-group">
                     <span class="input-group-addon">+91</span>
-                    <input id="msg" style="margin: 0px;" type="text" class="form-control" name="msg" maxlength="10" formControlName="mobile">
+                    <input id="msg" style="margin: 0px;" type="number" class="form-control" name="msg" maxlength="10" formControlName="mobile" (keyup)="trimPhone($event)" (keydown)="trimPhone($event)">
                   </div>
                   </form>
                 </div>

@@ -59,12 +59,12 @@ export class LoginSignupComponent implements OnInit {
   verifyOtp() {
     this.verifyOtpLoader = true;
     this.api.post('/verifyotp', {mobile: this.mobileForm.value.mobile, otp: this.otpForm.value.otp}).subscribe(val => {
-      this.verifyOtpLoader = false;
       if (val['type'] === 'success' && val['auth']) {
         localStorage.setItem('auth', val['auth']);
         window.location.reload();
       } else {
         this.wrongOtp = true;
+        this.verifyOtpLoader = false;
       }
     });
   }
@@ -86,7 +86,9 @@ export class LoginSignupComponent implements OnInit {
       }
     }, 1000);
   }
-
+  trimPhone(event) {
+    this.mobileForm.patchValue({'mobile': this.mobileForm.value.mobile.substring(0, 10)});
+  }
 
 
   loginUser() {
