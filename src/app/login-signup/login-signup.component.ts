@@ -11,6 +11,9 @@ export class LoginSignupComponent implements OnInit {
   login: Boolean = true;
   signupForm: FormGroup;
   loginForm: FormGroup;
+
+  getOtploader: Boolean = false;
+  verifyOtpLoader: Boolean = false;
   mobileForm: FormGroup;
   otpForm: FormGroup;
   showOtpForm: Boolean = false;
@@ -43,15 +46,19 @@ export class LoginSignupComponent implements OnInit {
     });
   }
   sendOtp() {
+    this.getOtploader = true;
     this.api.post('/sendotp', {mobile: this.mobileForm.value.mobile}).subscribe(val => {
       console.log(val);
+      this.getOtploader = false;
+      this.showOtpForm = true;
+      this.resendTimer();
+      this.wrongOtp = false;
     });
-    this.showOtpForm = true;
-    this.resendTimer();
-    this.wrongOtp = false;
   }
   verifyOtp() {
+    this.verifyOtpLoader = true;
     this.api.post('/verifyotp', {mobile: this.mobileForm.value.mobile, otp: this.otpForm.value.otp}).subscribe(val => {
+      this.verifyOtpLoader = false;
       if (val['type'] === 'success' && val['auth']) {
         localStorage.setItem('auth', val['auth']);
         window.location.reload();
