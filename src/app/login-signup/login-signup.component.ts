@@ -54,6 +54,7 @@ export class LoginSignupComponent implements OnInit {
       this.resendTimer();
       this.wrongOtp = false;
     });
+    this.verifyOtpLoader = false;
   }
   verifyOtp() {
     this.verifyOtpLoader = true;
