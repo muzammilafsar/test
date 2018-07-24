@@ -16,6 +16,9 @@ export class ShoppingCartComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
   }
+  get loggedIn(){
+    return this.loginService.loggedIn;
+  }
   ngAfterViewInit() {
     document.getElementById('mycart').scrollIntoView();
   }
