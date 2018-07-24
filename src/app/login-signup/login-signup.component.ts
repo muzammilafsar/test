@@ -106,7 +106,7 @@ export class LoginSignupComponent implements OnInit {
         } else if (val['status'] === 401) {
           this.loginErrorMsg = 'Email not registered';
         }
-      })
+      });
   }
   signupUser() {
     this.alreadyregistered = false;

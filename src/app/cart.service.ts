@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CartService {
   productList = [];
-  constructor() { 
+  constructor() {
     let list  = JSON.parse(localStorage.getItem('cart'));
     if(list) {
       this.productList = list;
@@ -12,7 +12,7 @@ export class CartService {
   addItem(product) {
     let found = false;
     this.productList.map(val => {
-      if(product._id === val._id ) {
+      if (product._id === val._id ) {
         found = true;
       }
     });
@@ -43,10 +43,13 @@ export class CartService {
     this.productList.splice(index, 1);
     this.saveList();
   }
-  saveList(){
+  saveList() {
     localStorage.setItem('cart', JSON.stringify(this.productList));
   }
-
+  emptyCart() {
+    localStorage.removeItem('cart');
+    this.productList = [];
+  }
   CarttotalAmount() {
     let total = 0;
     this.productList.map(val => {

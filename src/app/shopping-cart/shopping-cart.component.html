@@ -1,5 +1,5 @@
 <!-- checkout -->
-<div class="checkout">
+<div class="checkout" id="mycart">
   <div class="container">
     <h2>Your shopping cart contains: <span>{{shoppingCart.length}} Products</span></h2>
     <div class="checkout-right">
@@ -34,14 +34,7 @@
             <div class="rem">
               <div> <i class="fa fa-times fa-2" style="font-size: 2em" aria-hidden="true"></i></div>
             </div>
-            <script>₹(document).ready(function(c) {
-              ₹('.close1').on('click', function(c){
-                ₹('.rem1').fadeOut('slow', function(c){
-                  ₹('.rem1').remove();
-                });
-                });	  
-              });
-             </script>
+
           </td>
         </tr>
 
@@ -50,7 +43,8 @@
     </div>
     <div class="checkout-left">	
       <div class="checkout-left-basket">
-        <h4 routerLink="/checkout">CHECKOUT</h4>
+        <h4 *ngIf="loggedIn" routerLink="/checkout">CHECKOUT</h4>
+        <h4 *ngIf="!loggedIn" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">CHECKOUT</h4>
         <ul>
           <li *ngFor="let item of shoppingCart">{{item.name}} <i>x</i> {{item.quantity}}  <span>{{item.selling_price * item.quantity}}</span></li>
           <li>Shipping Charges <i></i> <span>₹15.00</span></li>

@@ -9,15 +9,18 @@ import { LoginService } from '../login.service';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private cart: CartService) { }
 
   ngOnInit() {
   }
   get loginStatus() {
     return this.loginService.loggedIn;
   }
-  logout(){
-this.loginService.logout();
+  get cartItemsNumber() {
+    return this.cart.productList.length;
+  }
+  logout() {
+    this.loginService.logout();
   }
 
 }

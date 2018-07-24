@@ -10,13 +10,14 @@ import { CartService } from '../cart.service';
 export class NavigationBarComponent implements OnInit {
   categoryList = [];
 
-  constructor(private api : ApiService,  private cartService: CartService) { }
+  constructor(private api: ApiService,  private cartService: CartService) { }
 
   ngOnInit() {
     this.api.get('/getallcatwithsubcat').subscribe(val => {
       this.categoryList = val['categories'];
-      console.log(val['categories']);
-    })
+      this.api.allCatWithSubCat = val['categories'];
+      console.log(this.categoryList);
+    });
   }
   get cartCount() {
     return this.cartService.productList.length;

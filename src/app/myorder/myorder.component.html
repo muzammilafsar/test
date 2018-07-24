@@ -1,6 +1,7 @@
 <div class="row">
-  <div class="col-md-6">
-      <table class="table table-hover">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" *ngIf="orders.length > 0">
+      <table class="table table-hover" >
           <thead>
             <tr>
               <th>Order/Status</th>
@@ -10,13 +11,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>GRC-1008<br>Completed</td>
-              <td>2 items</td>
-              <td>13 Jun, 2018</td>
-              <td>940.00</td>
+            <tr *ngFor="let order of orders">
+              <td>GRC-{{order?.order_special_id}}<br>{{order?.status}}</td>
+              <td>{{order?.items.length}} items</td>
+              <td>{{order?.order_date}}</td>
+              <td>{{order?.total_price}}</td>
             </tr>
           </tbody>
         </table>
   </div>
+  <div class="col-md-6" *ngIf="orders.length === 0 && fetchingOrders === false">You have not placed any orders yet.</div>
+
 </div>

@@ -1,0 +1,11 @@
+<div class="categories">
+    <h2>Categories</h2>
+    <ul class="cate">
+<ng-container *ngFor="let category of categories">      
+  <li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{category["category"]["name"]}}</a></li>
+  <ul>
+    <li *ngFor="let sub of category['sub_category']"><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{sub.name}}</a></li>
+    
+  </ul></ng-container>
+    </ul>
+  </div>

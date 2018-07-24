@@ -6,6 +6,7 @@ export class ApiService {
   confirmedOrder = null;
   // baseUrl = "http://localhost:3000";
   baseUrl = 'https://grocstoreapi.herokuapp.com';
+  allCatWithSubCat = [];
   constructor(private http: HttpClient) { }
   get(url) {
     return this.http.get(`${this.baseUrl}${url}`);

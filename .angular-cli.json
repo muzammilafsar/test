@@ -26,12 +26,13 @@
       ],
       "scripts": [
         "../src/ui/js/jquery-1.11.1.min.js",
+        "../src/ui/js/bootstrap.min.js",
         "../src/ui/js/minicart.min.js",
         "../src/ui/js/move-top.js",
         "../src/ui/js/responsiveslides.min.js",
         "../src/ui/js/skdslider.min.js",
-        "../src/ui/js/easing.js",
-        "../src/ui/js/bootstrap.min.js"           
+        "../src/ui/js/easing.js"
+                  
         
       ],
       "environmentSource": "environments/environment.ts",

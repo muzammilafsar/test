@@ -30,6 +30,7 @@ import { LoaderuiComponent } from './loaderui/loaderui.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { LoginService } from './login.service';
 import { MyorderComponent } from './myorder/myorder.component';
+import { CategorySidebarComponent } from './category-sidebar/category-sidebar.component';
 
 
 // Configs
@@ -81,6 +82,7 @@ const AppRoutes: Routes = [
     LoaderuiComponent,
     OrderConfirmationComponent,
     MyorderComponent,
+    CategorySidebarComponent,
   ],
   imports: [
     BrowserModule, UiModule,
